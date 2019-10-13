@@ -23,6 +23,9 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{4ca0b757-14f1-4f41-ae31-4d491c2418c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -49,5 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PersonalQtManager.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SortArrays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

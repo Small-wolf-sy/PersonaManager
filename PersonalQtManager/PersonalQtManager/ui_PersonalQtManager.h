@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'PersonalQtManager.ui'
+** Form generated from reading UI file 'PersonalQtManagerp10260.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_PERSONALQTMANAGER_H
-#define UI_PERSONALQTMANAGER_H
+#ifndef PERSONALQTMANAGERP10260_H
+#define PERSONALQTMANAGERP10260_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -43,13 +43,12 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         mainRoleFrame = new QFrame(centralWidget);
         mainRoleFrame->setObjectName(QStringLiteral("mainRoleFrame"));
-        mainRoleFrame->setGeometry(QRect(110, 10, 251, 281));
+        mainRoleFrame->setGeometry(QRect(100, 20, 261, 291));
         mainRoleFrame->setFrameShape(QFrame::StyledPanel);
         mainRoleFrame->setFrameShadow(QFrame::Raised);
         RolePicLabel = new QLabel(mainRoleFrame);
         RolePicLabel->setObjectName(QStringLiteral("RolePicLabel"));
-        RolePicLabel->setGeometry(QRect(40, 70, 161, 161));
-        RolePicLabel->setAcceptDrops(false);
+        RolePicLabel->setGeometry(QRect(100, 140, 54, 12));
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -81,4 +80,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_PERSONALQTMANAGER_H
+#endif // PERSONALQTMANAGERP10260_H

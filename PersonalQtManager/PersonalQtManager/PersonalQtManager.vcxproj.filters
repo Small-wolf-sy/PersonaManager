@@ -51,14 +51,17 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="PersonalQtManager.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="SortArrays.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="PersonalQtManager.ico" />
+    <Image Include="jpg\role.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

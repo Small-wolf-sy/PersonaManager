@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_PersonalQtManager.h"
+#include "MemorGui.h"
 
 class PersonalQtManager : public QMainWindow
 {
@@ -9,7 +10,9 @@ class PersonalQtManager : public QMainWindow
 
 public:
 	PersonalQtManager(QWidget *parent = Q_NULLPTR);
-
+	public slots:
+	void MemoryButtonEvent();
 private:
 	Ui::PersonalQtManagerClass ui;
+	Ui::MemorGui memoryui;
 };

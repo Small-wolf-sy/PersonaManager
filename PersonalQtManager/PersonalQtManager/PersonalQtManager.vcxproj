@@ -51,7 +51,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>msvc2015_64</QtInstall>
+    <QtInstall>QT5.8</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -68,7 +68,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -91,19 +91,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MemorGui.cpp" />
     <ClCompile Include="PersonalQtManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PersonalQtManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="MemorGui.ui" />
     <QtUic Include="PersonalQtManager.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="PersonalQtManager.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="MemorGui.h" />
     <ClInclude Include="SortArrays.h" />
+    <ClInclude Include="ui_MemorGui.h" />
     <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h" />
   </ItemGroup>
   <ItemGroup>

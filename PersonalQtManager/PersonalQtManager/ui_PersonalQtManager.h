@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'PersonalQtManagerp10260.ui'
+** Form generated from reading UI file 'PersonalQtManagerHp9412.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef PERSONALQTMANAGERP10260_H
-#define PERSONALQTMANAGERP10260_H
+#ifndef PERSONALQTMANAGERHP9412_H
+#define PERSONALQTMANAGERHP9412_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -30,6 +31,7 @@ public:
     QWidget *centralWidget;
     QFrame *mainRoleFrame;
     QLabel *RolePicLabel;
+    QPushButton *memorButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -43,12 +45,20 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         mainRoleFrame = new QFrame(centralWidget);
         mainRoleFrame->setObjectName(QStringLiteral("mainRoleFrame"));
-        mainRoleFrame->setGeometry(QRect(100, 20, 261, 291));
+        mainRoleFrame->setGeometry(QRect(180, 20, 251, 281));
         mainRoleFrame->setFrameShape(QFrame::StyledPanel);
         mainRoleFrame->setFrameShadow(QFrame::Raised);
         RolePicLabel = new QLabel(mainRoleFrame);
         RolePicLabel->setObjectName(QStringLiteral("RolePicLabel"));
-        RolePicLabel->setGeometry(QRect(100, 140, 54, 12));
+        RolePicLabel->setGeometry(QRect(50, 60, 161, 161));
+        RolePicLabel->setAcceptDrops(false);
+        memorButton = new QPushButton(centralWidget);
+        memorButton->setObjectName(QStringLiteral("memorButton"));
+        memorButton->setGeometry(QRect(30, 20, 101, 31));
+        QFont font;
+        font.setFamily(QStringLiteral("Calibri"));
+        font.setPointSize(10);
+        memorButton->setFont(font);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -70,6 +80,7 @@ public:
     {
         PersonalQtManagerClass->setWindowTitle(QApplication::translate("PersonalQtManagerClass", "PersonalQtManager", Q_NULLPTR));
         RolePicLabel->setText(QString());
+        memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -80,4 +91,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // PERSONALQTMANAGERP10260_H
+#endif // PERSONALQTMANAGERHP9412_H

@@ -34,14 +34,23 @@
     <ClCompile Include="PersonalQtManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MemorGui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PersonalQtManager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="MemorGui.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="PersonalQtManager.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MemorGui.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -56,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="SortArrays.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MemorGui.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

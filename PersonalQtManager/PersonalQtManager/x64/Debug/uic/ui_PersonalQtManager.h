@@ -18,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -30,6 +31,7 @@ public:
     QWidget *centralWidget;
     QFrame *mainRoleFrame;
     QLabel *RolePicLabel;
+    QPushButton *memorButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -43,13 +45,20 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         mainRoleFrame = new QFrame(centralWidget);
         mainRoleFrame->setObjectName(QStringLiteral("mainRoleFrame"));
-        mainRoleFrame->setGeometry(QRect(110, 10, 251, 281));
+        mainRoleFrame->setGeometry(QRect(180, 20, 251, 281));
         mainRoleFrame->setFrameShape(QFrame::StyledPanel);
         mainRoleFrame->setFrameShadow(QFrame::Raised);
         RolePicLabel = new QLabel(mainRoleFrame);
         RolePicLabel->setObjectName(QStringLiteral("RolePicLabel"));
-        RolePicLabel->setGeometry(QRect(40, 70, 161, 161));
+        RolePicLabel->setGeometry(QRect(50, 60, 161, 161));
         RolePicLabel->setAcceptDrops(false);
+        memorButton = new QPushButton(centralWidget);
+        memorButton->setObjectName(QStringLiteral("memorButton"));
+        memorButton->setGeometry(QRect(30, 20, 101, 31));
+        QFont font;
+        font.setFamily(QStringLiteral("Calibri"));
+        font.setPointSize(10);
+        memorButton->setFont(font);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -71,6 +80,7 @@ public:
     {
         PersonalQtManagerClass->setWindowTitle(QApplication::translate("PersonalQtManagerClass", "PersonalQtManager", Q_NULLPTR));
         RolePicLabel->setText(QString());
+        memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
     } // retranslateUi
 
 };

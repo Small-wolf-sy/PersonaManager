@@ -37,6 +37,9 @@
     <ClCompile Include="MemorGui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="memoryData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PersonalQtManager.h">
@@ -68,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="ui_MemorGui.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="memoryData.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

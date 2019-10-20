@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include <qmessagebox.h>
 #include "ui_MemorGui.h"
 
 class MemorGui : public QWidget
@@ -10,6 +11,11 @@ class MemorGui : public QWidget
 public:
 	MemorGui(QWidget *parent = Q_NULLPTR);
 	~MemorGui();
+public slots:
+	   void searchButtonClickEvent();
+	   void addButtonClickEvent();
+	   void inputFinishClickEvent();
+	   void inputCancelClickEvent();
 private:
 	Ui::MemorGui ui;
 };

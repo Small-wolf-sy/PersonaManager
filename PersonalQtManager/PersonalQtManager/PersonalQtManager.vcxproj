@@ -92,6 +92,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MemorGui.cpp" />
+    <ClCompile Include="memoryData.cpp" />
     <ClCompile Include="PersonalQtManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MemorGui.h" />
+    <ClInclude Include="memoryData.h" />
     <ClInclude Include="SortArrays.h" />
     <ClInclude Include="ui_MemorGui.h" />
     <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h" />

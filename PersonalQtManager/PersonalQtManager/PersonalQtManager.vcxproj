@@ -106,7 +106,9 @@
     <QtRcc Include="PersonalQtManager.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MemorGui.h" />
+    <QtMoc Include="MemorGui.h">
+      <NoWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</NoWarnings>
+    </QtMoc>
     <ClInclude Include="memoryData.h" />
     <ClInclude Include="SortArrays.h" />
     <ClInclude Include="ui_MemorGui.h" />

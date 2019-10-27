@@ -75,6 +75,9 @@
     <ClInclude Include="memoryData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="PersonalQtManager.ico" />

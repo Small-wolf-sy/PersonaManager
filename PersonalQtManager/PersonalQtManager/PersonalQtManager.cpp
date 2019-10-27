@@ -1,5 +1,4 @@
 #include "PersonalQtManager.h"
-#include <string>
 using namespace std;
 PersonalQtManager::PersonalQtManager(QWidget *parent)
 	: QMainWindow(parent)
@@ -9,6 +8,10 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	QImage image;
 	image.load("jpg/role.jpg");
 	QPixmap pix;
+	//时间的实时显示
+	MyTimeThread *mt =new MyTimeThread(ui.timeLabel);
+	//ui.timeLabel->setText(QTime::currentTime().toString("hh:mm:ss"));
+	mt->start();//启动线程
 	//label位于frame内时，label的定位是内部坐标系
 	ui.RolePicLabel->setGeometry(QRect(0, 0, ui.mainRoleFrame->width(), ui.mainRoleFrame->height()));
 	ui.RolePicLabel->setPixmap(pix.fromImage(image));
@@ -22,5 +25,7 @@ void PersonalQtManager::MemoryButtonEvent()
 {
 	//新建弹窗
 	MemorGui *memoryui=new MemorGui();
+	//窗体关闭时自动销毁内存
+	memoryui->setAttribute(Qt::WA_DeleteOnClose, true);
 	memoryui->show();
 }

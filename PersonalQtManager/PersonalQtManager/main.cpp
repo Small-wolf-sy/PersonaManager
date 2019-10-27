@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
 	//return 0;
 	QApplication a(argc, argv);
 	PersonalQtManager w;
+	//关闭时自动销毁内存
+	//w.setAttribute(Qt::WA_DeleteOnClose, true);
 	w.show();
 	return a.exec();
 }

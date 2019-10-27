@@ -32,6 +32,7 @@ public:
     QFrame *mainRoleFrame;
     QLabel *RolePicLabel;
     QPushButton *memorButton;
+    QLabel *timeLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -40,7 +41,7 @@ public:
     {
         if (PersonalQtManagerClass->objectName().isEmpty())
             PersonalQtManagerClass->setObjectName(QStringLiteral("PersonalQtManagerClass"));
-        PersonalQtManagerClass->resize(488, 374);
+        PersonalQtManagerClass->resize(446, 384);
         centralWidget = new QWidget(PersonalQtManagerClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         mainRoleFrame = new QFrame(centralWidget);
@@ -59,10 +60,17 @@ public:
         font.setFamily(QStringLiteral("Calibri"));
         font.setPointSize(10);
         memorButton->setFont(font);
+        timeLabel = new QLabel(centralWidget);
+        timeLabel->setObjectName(QStringLiteral("timeLabel"));
+        timeLabel->setGeometry(QRect(250, 300, 101, 20));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Calibri"));
+        font1.setPointSize(12);
+        timeLabel->setFont(font1);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 488, 23));
+        menuBar->setGeometry(QRect(0, 0, 446, 23));
         PersonalQtManagerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(PersonalQtManagerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -81,6 +89,7 @@ public:
         PersonalQtManagerClass->setWindowTitle(QApplication::translate("PersonalQtManagerClass", "PersonalQtManager", Q_NULLPTR));
         RolePicLabel->setText(QString());
         memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
+        timeLabel->setText(QApplication::translate("PersonalQtManagerClass", "timeLabel", Q_NULLPTR));
     } // retranslateUi
 
 };

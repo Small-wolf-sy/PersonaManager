@@ -110,6 +110,7 @@
       <NoWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</NoWarnings>
     </QtMoc>
     <ClInclude Include="memoryData.h" />
+    <ClInclude Include="MyThread.h" />
     <ClInclude Include="SortArrays.h" />
     <ClInclude Include="ui_MemorGui.h" />
     <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h" />

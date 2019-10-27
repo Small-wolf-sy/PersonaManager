@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'PersonalQtManagerHp9412.ui'
+** Form generated from reading UI file 'PersonalQtManagerHp6148.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef PERSONALQTMANAGERHP9412_H
-#define PERSONALQTMANAGERHP9412_H
+#ifndef PERSONALQTMANAGERHP6148_H
+#define PERSONALQTMANAGERHP6148_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -32,6 +32,7 @@ public:
     QFrame *mainRoleFrame;
     QLabel *RolePicLabel;
     QPushButton *memorButton;
+    QLabel *timeLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -40,7 +41,7 @@ public:
     {
         if (PersonalQtManagerClass->objectName().isEmpty())
             PersonalQtManagerClass->setObjectName(QStringLiteral("PersonalQtManagerClass"));
-        PersonalQtManagerClass->resize(488, 374);
+        PersonalQtManagerClass->resize(446, 384);
         centralWidget = new QWidget(PersonalQtManagerClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         mainRoleFrame = new QFrame(centralWidget);
@@ -59,10 +60,17 @@ public:
         font.setFamily(QStringLiteral("Calibri"));
         font.setPointSize(10);
         memorButton->setFont(font);
+        timeLabel = new QLabel(centralWidget);
+        timeLabel->setObjectName(QStringLiteral("timeLabel"));
+        timeLabel->setGeometry(QRect(250, 300, 101, 20));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Calibri"));
+        font1.setPointSize(12);
+        timeLabel->setFont(font1);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 488, 23));
+        menuBar->setGeometry(QRect(0, 0, 446, 23));
         PersonalQtManagerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(PersonalQtManagerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -81,6 +89,7 @@ public:
         PersonalQtManagerClass->setWindowTitle(QApplication::translate("PersonalQtManagerClass", "PersonalQtManager", Q_NULLPTR));
         RolePicLabel->setText(QString());
         memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
+        timeLabel->setText(QApplication::translate("PersonalQtManagerClass", "timeLabel", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -91,4 +100,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // PERSONALQTMANAGERHP9412_H
+#endif // PERSONALQTMANAGERHP6148_H

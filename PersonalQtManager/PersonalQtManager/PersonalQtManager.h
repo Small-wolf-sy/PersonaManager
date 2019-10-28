@@ -13,8 +13,7 @@ public:
 	PersonalQtManager(QWidget *parent = Q_NULLPTR);
 	public slots:
 	void MemoryButtonEvent();
-	//signals:
-	//void timeShow();
+	void ClickEventFilter(QWidget*);//未来针对按钮事件，统一用这个来筛选具体的按钮事件，而不是每一个都需要写一遍
 private:
 	Ui::PersonalQtManagerClass ui;
 	Ui::MemorGui memoryui;

@@ -1,4 +1,5 @@
 #include "PersonalQtManager.h"
+#include <qsignalmapper.h>
 using namespace std;
 PersonalQtManager::PersonalQtManager(QWidget *parent)
 	: QMainWindow(parent)
@@ -18,7 +19,12 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	ui.RolePicLabel->setScaledContents(true);
 	ui.RolePicLabel->show();
 	//绑定事件
-	connect(ui.memorButton, SIGNAL(clicked()), this, SLOT(MemoryButtonEvent()));
+	//建立多套印射
+	QSignalMapper *mSignalMapper = new QSignalMapper(this);
+	connect(mSignalMapper, SIGNAL(mapped(QWidget*)), this, SLOT(ClickEventFilter(QWidget*)));
+	mSignalMapper->setMapping(ui.memorButton,ui.memorButton);
+	connect(ui.memorButton, SIGNAL(clicked()), mSignalMapper, SLOT(map()));
+	//connect(ui.memorButton, SIGNAL(clicked()), this, SLOT(MemoryButtonEvent()));
 }
 //记录功能激活事件
 void PersonalQtManager::MemoryButtonEvent()
@@ -28,4 +34,18 @@ void PersonalQtManager::MemoryButtonEvent()
 	//窗体关闭时自动销毁内存
 	memoryui->setAttribute(Qt::WA_DeleteOnClose, true);
 	memoryui->show();
+}
+
+void PersonalQtManager::ClickEventFilter(QWidget* w)
+{
+	//获取按钮
+	QPushButton* button = qobject_cast<QPushButton*>(w); 
+	if (NULL != button) 
+	{
+		if (button->text()=="memorandum")
+		{
+			MemoryButtonEvent();
+		}
+		//QMessageBox::warning(NULL, tr("title"), tr("cancel"));
+	}
 }

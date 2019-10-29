@@ -70,3 +70,11 @@ void MemorGui::SetMemDiseabled()
 	ui.operateCheckBox->setDisabled(true);
 	ui.timeRecord->setDisabled(true);
 }
+
+//当关闭时，告诉父窗口子窗口关闭
+void MemorGui::closeEvent(QCloseEvent * event)
+{
+	emit closedSignals();
+	//接受关闭信号
+	event->accept();
+}

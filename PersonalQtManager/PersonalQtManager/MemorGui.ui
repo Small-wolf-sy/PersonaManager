@@ -76,9 +76,9 @@
    <widget class="QPlainTextEdit" name="detailDesrciption">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>47</x>
       <y>90</y>
-      <width>161</width>
+      <width>160</width>
       <height>161</height>
      </rect>
     </property>
@@ -86,7 +86,7 @@
    <widget class="QTextEdit" name="memKey">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>47</x>
       <y>10</y>
       <width>121</width>
       <height>31</height>
@@ -96,7 +96,7 @@
    <widget class="QTextEdit" name="timeRecord">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>47</x>
       <y>50</y>
       <width>121</width>
       <height>31</height>
@@ -106,7 +106,7 @@
    <widget class="QDialogButtonBox" name="operateCheckBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>47</x>
       <y>260</y>
       <width>156</width>
       <height>23</height>
@@ -114,6 +114,66 @@
     </property>
     <property name="standardButtons">
      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Key</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>time</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>31</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Desc</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

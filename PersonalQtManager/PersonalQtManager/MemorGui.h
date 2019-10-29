@@ -14,8 +14,11 @@ public:
 	void ClearContext();
 	void SetMemEabled();
 	void SetMemDiseabled();
+	void closeEvent(QCloseEvent *event);//重写关闭事件
 	//清空填写的所有内容
-public slots:
+	signals:
+	void closedSignals();
+	public slots:
 	   void searchButtonClickEvent();
 	   void addButtonClickEvent();
 	   void inputFinishClickEvent();

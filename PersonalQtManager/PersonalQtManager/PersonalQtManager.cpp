@@ -24,16 +24,37 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	connect(mSignalMapper, SIGNAL(mapped(QWidget*)), this, SLOT(ClickEventFilter(QWidget*)));
 	mSignalMapper->setMapping(ui.memorButton,ui.memorButton);
 	connect(ui.memorButton, SIGNAL(clicked()), mSignalMapper, SLOT(map()));
+	//建立窗体之间的传递
+	//MemorGui *dlg = new MemorGui();
+	//connect(this->memoryui, SIGNAL(closedSignals()), this, SLOT(ChildQwidgeEvent()));
 	//connect(ui.memorButton, SIGNAL(clicked()), this, SLOT(MemoryButtonEvent()));
 }
+//子窗口关闭事件
+void PersonalQtManager::ChildQwidgeEvent()
+{
+	//重置窗口,确保再次开启时不会出问题
+	this->memoryui->destroyed();
+	this->memoryui = NULL;
+}
+
 //记录功能激活事件
 void PersonalQtManager::MemoryButtonEvent()
 {
-	//新建弹窗
-	MemorGui *memoryui=new MemorGui();
-	//窗体关闭时自动销毁内存
-	memoryui->setAttribute(Qt::WA_DeleteOnClose, true);
-	memoryui->show();
+	if (this->memoryui == NULL)
+	{
+		//新建弹窗
+		MemorGui *memoryui = new MemorGui();
+		//窗体关闭时自动销毁内存
+		memoryui->setAttribute(Qt::WA_DeleteOnClose, true);
+		memoryui->show();
+		this->memoryui = memoryui;
+		connect(this->memoryui, SIGNAL(closedSignals()), this, SLOT(ChildQwidgeEvent()));
+	}
+	else
+	{
+		//不要重复点
+		this->memoryui->showNormal();
+	}
 }
 
 void PersonalQtManager::ClickEventFilter(QWidget* w)

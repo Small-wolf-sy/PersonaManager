@@ -24,17 +24,13 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	connect(mSignalMapper, SIGNAL(mapped(QWidget*)), this, SLOT(ClickEventFilter(QWidget*)));
 	mSignalMapper->setMapping(ui.memorButton,ui.memorButton);
 	connect(ui.memorButton, SIGNAL(clicked()), mSignalMapper, SLOT(map()));
-	//建立窗体之间的传递
-	//MemorGui *dlg = new MemorGui();
-	//connect(this->memoryui, SIGNAL(closedSignals()), this, SLOT(ChildQwidgeEvent()));
-	//connect(ui.memorButton, SIGNAL(clicked()), this, SLOT(MemoryButtonEvent()));
 }
 //子窗口关闭事件
 void PersonalQtManager::ChildQwidgeEvent()
 {
 	//重置窗口,确保再次开启时不会出问题
 	this->memoryui->destroyed();
-	this->memoryui = NULL;
+	this->memoryui = NULL;//重新指向空指针，确保后续不会发生地址错误
 }
 
 //记录功能激活事件
@@ -52,7 +48,7 @@ void PersonalQtManager::MemoryButtonEvent()
 	}
 	else
 	{
-		//不要重复点
+		//确保不会重复打开，如果缩小化使其正常显示
 		this->memoryui->showNormal();
 	}
 }
@@ -63,6 +59,7 @@ void PersonalQtManager::ClickEventFilter(QWidget* w)
 	QPushButton* button = qobject_cast<QPushButton*>(w); 
 	if (NULL != button) 
 	{
+		//检测到是记事本按钮
 		if (button->text()=="memorandum")
 		{
 			MemoryButtonEvent();

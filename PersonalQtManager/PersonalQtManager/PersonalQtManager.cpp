@@ -11,8 +11,9 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	QPixmap pix;
 	//时间的实时显示
 	MyTimeThread *mt =new MyTimeThread(ui.timeLabel);
-	//ui.timeLabel->setText(QTime::currentTime().toString("hh:mm:ss"));
 	mt->start();//启动线程
+	MyCPUThread *mc = new MyCPUThread(ui.CpuLabel);
+	mc->start();
 	//label位于frame内时，label的定位是内部坐标系
 	ui.RolePicLabel->setGeometry(QRect(0, 0, ui.mainRoleFrame->width(), ui.mainRoleFrame->height()));
 	ui.RolePicLabel->setPixmap(pix.fromImage(image));

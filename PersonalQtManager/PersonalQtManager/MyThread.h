@@ -60,7 +60,7 @@ public:
 			__int64 cpuidle = (idle) * 100 / (kernel + user);
 			std::string cpu_result;
 			cpu_result= "CPU利用率:";
-			cpu_result += cpu+"% CPU空闲率:"+ cpuidle;
+			cpu_result += std::to_string(cpu)+"% CPU空闲率:"+ std::to_string(cpuidle);
 			cpu_result += "%";
 			_label->setText(QString::fromStdString(cpu_result));
 			preidleTime = idleTime;

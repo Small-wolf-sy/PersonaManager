@@ -22,8 +22,7 @@ public:
 	   void searchButtonClickEvent();
 	   void addButtonClickEvent();
 	   void inputFinishClickEvent();
-	   void inputCancelClickEvent();
-	   
+	   void inputCancelClickEvent();  
 private:
 	Ui::MemorGui ui;
 };

@@ -1,22 +1,28 @@
-//#pragma once
+﻿//#pragma once
 #ifndef MYTHREAD_H
 #define MYTHREAD_H
 #include <qthread.h>
 #include <QtWidgets/QLabel>
 #include <windows.h>
 #include <QTime>
-//���ڼ�ʱʱ����ֳ�
+//用于计时时间的现成
 class MyTimeThread:public QThread
 {
 public:
-	//����������ʱ��
+	//设置所属的时间
 	MyTimeThread(QLabel *label) {
 		_label = label;
 	}
-	~MyTimeThread() {
-
+	//无指向
+	MyTimeThread() {
 	}
-	void run()//��д
+	~MyTimeThread() {
+	}
+	void SetLabel(QLabel *label)
+	{
+			_label = label;
+	}
+	void run()//重写
 	{
 		while (true)
 		{
@@ -27,18 +33,32 @@ public:
 private:
 	QLabel *_label;
 };
-//����ȷ��CPU��ʹ�����
+//用于确认CPU的使用情况
 class MyCPUThread :public QThread
 {
 public:
-	//���������ı�ǩ
+	//设置所属的标签
 	MyCPUThread(QLabel *label) {
 		_label = label;
 	}
-	~MyCPUThread() {
-
+	MyCPUThread() {
 	}
-	void run()//��д
+	~MyCPUThread() {
+	}
+	void SetLabel(QLabel *label)
+	{
+		_label = label;
+	}
+	/*
+	计算CPU占用率就是获取系统总的内核时间 用户时间及空闲时间
+	其中空闲时间就是内核空转 所以内核时间包含空闲时间
+	然后计算
+	运行时间 = 内核时间 加 用户时间 减去 空闲时间
+	间隔时间 =  内核时间 加 用户时间
+	cpu使用率% = 运行时间 / 间隔时间 ;
+	无论单个进程cpu占用率还是系统整个cpu占用路 都是如此原理
+	*/
+	void run()//重写
 	{
 		BOOL res;
 		FILETIME preidleTime;
@@ -59,8 +79,8 @@ public:
 			__int64 cpu = (kernel + user - idle) * 100 / (kernel + user);
 			__int64 cpuidle = (idle) * 100 / (kernel + user);
 			std::string cpu_result;
-			cpu_result= "CPU������:";
-			cpu_result += std::to_string(cpu)+"% CPU������:"+ std::to_string(cpuidle);
+			cpu_result= "CPU\nUSE:";
+			cpu_result += std::to_string(cpu)+"% FREE:"+ std::to_string(cpuidle)+"%";
 			cpu_result += "%";
 			_label->setText(QString::fromStdString(cpu_result));
 			preidleTime = idleTime;

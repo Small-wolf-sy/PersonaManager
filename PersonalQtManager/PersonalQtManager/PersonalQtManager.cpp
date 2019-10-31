@@ -9,11 +9,9 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	QImage image;
 	image.load("jpg/role.jpg");
 	QPixmap pix;
-	//时间的实时显示
-	MyTimeThread *mt =new MyTimeThread(ui.timeLabel);
-	mt->start();//启动线程
-	MyCPUThread *mc = new MyCPUThread(ui.CpuLabel);
-	mc->start();
+	//各种显示效果的线程启动
+	ThreadStart();
+
 	//label位于frame内时，label的定位是内部坐标系
 	ui.RolePicLabel->setGeometry(QRect(0, 0, ui.mainRoleFrame->width(), ui.mainRoleFrame->height()));
 	ui.RolePicLabel->setPixmap(pix.fromImage(image));
@@ -34,6 +32,14 @@ void PersonalQtManager::ChildQwidgeEvent()
 	this->memoryui = NULL;//重新指向空指针，确保后续不会发生地址错误
 }
 
+void PersonalQtManager::ThreadStart()
+{
+	mt->SetLabel(ui.timeLabel);
+	mt->start();//启动线程
+	mc->SetLabel(ui.CPULabel);
+	mc->start();
+}
+
 //记录功能激活事件
 void PersonalQtManager::MemoryButtonEvent()
 {
@@ -52,6 +58,15 @@ void PersonalQtManager::MemoryButtonEvent()
 		//确保不会重复打开，如果缩小化使其正常显示
 		this->memoryui->showNormal();
 	}
+}
+
+//窗口关闭
+void PersonalQtManager::closeEvent(QCloseEvent * event)
+{
+	//停止线程，避免窗口关闭时线程仍然在执行
+	mt->quit();
+	mc->quit();
+	event->accept();
 }
 
 void PersonalQtManager::ClickEventFilter(QWidget* w)

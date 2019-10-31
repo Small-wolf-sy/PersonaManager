@@ -33,6 +33,7 @@ public:
     QLabel *RolePicLabel;
     QPushButton *memorButton;
     QLabel *timeLabel;
+    QLabel *CPULabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -67,6 +68,10 @@ public:
         font1.setFamily(QStringLiteral("Calibri"));
         font1.setPointSize(12);
         timeLabel->setFont(font1);
+        CPULabel = new QLabel(centralWidget);
+        CPULabel->setObjectName(QStringLiteral("CPULabel"));
+        CPULabel->setGeometry(QRect(10, 220, 121, 41));
+        CPULabel->setFont(font1);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -90,6 +95,7 @@ public:
         RolePicLabel->setText(QString());
         memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
         timeLabel->setText(QApplication::translate("PersonalQtManagerClass", "timeLabel", Q_NULLPTR));
+        CPULabel->setText(QApplication::translate("PersonalQtManagerClass", "TextLabel", Q_NULLPTR));
     } // retranslateUi
 
 };

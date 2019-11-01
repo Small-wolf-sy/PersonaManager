@@ -11,7 +11,6 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	QPixmap pix;
 	//各种显示效果的线程启动
 	ThreadStart();
-
 	//label位于frame内时，label的定位是内部坐标系
 	ui.RolePicLabel->setGeometry(QRect(0, 0, ui.mainRoleFrame->width(), ui.mainRoleFrame->height()));
 	ui.RolePicLabel->setPixmap(pix.fromImage(image));
@@ -36,8 +35,12 @@ void PersonalQtManager::ThreadStart()
 {
 	mt->SetLabel(ui.timeLabel);
 	mt->start();//启动线程
-	mc->SetLabel(ui.CPULabel);
-	mc->start();
+	//隐藏CPUlabel，暂时不需要上线这个功能
+	//ui.CPULabel->setAttribute(Qt::WA_TranslucentBackground);
+	ui.CPULabel->setText("");
+	ui.CPULabel->setEnabled(false);
+	//mc->SetLabel(ui.CPULabel);
+	//mc->start();
 }
 
 //记录功能激活事件
@@ -65,7 +68,7 @@ void PersonalQtManager::closeEvent(QCloseEvent * event)
 {
 	//停止线程，避免窗口关闭时线程仍然在执行
 	mt->quit();
-	mc->quit();
+	//mc->quit();
 	event->accept();
 }
 

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'PersonalQtManagerHp9552.ui'
+** Form generated from reading UI file 'PersonalQtManagerp14144.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef PERSONALQTMANAGERHP9552_H
-#define PERSONALQTMANAGERHP9552_H
+#ifndef PERSONALQTMANAGERP14144_H
+#define PERSONALQTMANAGERP14144_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -34,6 +34,7 @@ public:
     QPushButton *memorButton;
     QLabel *timeLabel;
     QLabel *CPULabel;
+    QPushButton *DataVisualButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -72,6 +73,10 @@ public:
         CPULabel->setObjectName(QStringLiteral("CPULabel"));
         CPULabel->setGeometry(QRect(10, 220, 121, 41));
         CPULabel->setFont(font1);
+        DataVisualButton = new QPushButton(centralWidget);
+        DataVisualButton->setObjectName(QStringLiteral("DataVisualButton"));
+        DataVisualButton->setGeometry(QRect(22, 59, 120, 31));
+        DataVisualButton->setFont(font);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -94,8 +99,11 @@ public:
         PersonalQtManagerClass->setWindowTitle(QApplication::translate("PersonalQtManagerClass", "PersonalQtManager", Q_NULLPTR));
         RolePicLabel->setText(QString());
         memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
+        memorButton->setShortcut(QApplication::translate("PersonalQtManagerClass", "Ctrl+N", Q_NULLPTR));
         timeLabel->setText(QApplication::translate("PersonalQtManagerClass", "timeLabel", Q_NULLPTR));
         CPULabel->setText(QApplication::translate("PersonalQtManagerClass", "TextLabel", Q_NULLPTR));
+        DataVisualButton->setText(QApplication::translate("PersonalQtManagerClass", "DataVisualization", Q_NULLPTR));
+        DataVisualButton->setShortcut(QApplication::translate("PersonalQtManagerClass", "Ctrl+D", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -106,4 +114,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // PERSONALQTMANAGERHP9552_H
+#endif // PERSONALQTMANAGERP14144_H

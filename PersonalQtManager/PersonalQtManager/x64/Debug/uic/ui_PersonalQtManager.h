@@ -34,6 +34,7 @@ public:
     QPushButton *memorButton;
     QLabel *timeLabel;
     QLabel *CPULabel;
+    QPushButton *DataVisualButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -72,6 +73,10 @@ public:
         CPULabel->setObjectName(QStringLiteral("CPULabel"));
         CPULabel->setGeometry(QRect(10, 220, 121, 41));
         CPULabel->setFont(font1);
+        DataVisualButton = new QPushButton(centralWidget);
+        DataVisualButton->setObjectName(QStringLiteral("DataVisualButton"));
+        DataVisualButton->setGeometry(QRect(22, 59, 120, 31));
+        DataVisualButton->setFont(font);
         PersonalQtManagerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(PersonalQtManagerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -94,8 +99,11 @@ public:
         PersonalQtManagerClass->setWindowTitle(QApplication::translate("PersonalQtManagerClass", "PersonalQtManager", Q_NULLPTR));
         RolePicLabel->setText(QString());
         memorButton->setText(QApplication::translate("PersonalQtManagerClass", "memorandum", Q_NULLPTR));
+        memorButton->setShortcut(QApplication::translate("PersonalQtManagerClass", "Ctrl+N", Q_NULLPTR));
         timeLabel->setText(QApplication::translate("PersonalQtManagerClass", "timeLabel", Q_NULLPTR));
         CPULabel->setText(QApplication::translate("PersonalQtManagerClass", "TextLabel", Q_NULLPTR));
+        DataVisualButton->setText(QApplication::translate("PersonalQtManagerClass", "DataVisualization", Q_NULLPTR));
+        DataVisualButton->setShortcut(QApplication::translate("PersonalQtManagerClass", "Ctrl+D", Q_NULLPTR));
     } // retranslateUi
 
 };

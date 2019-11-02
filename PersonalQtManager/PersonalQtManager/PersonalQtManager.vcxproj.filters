@@ -26,6 +26,9 @@
     <Filter Include="Generated Files">
       <UniqueIdentifier>{4ca0b757-14f1-4f41-ae31-4d491c2418c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DataClassFiles">
+      <UniqueIdentifier>{9b1ff541-fff3-427e-863f-a8de4267e9f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,6 +42,9 @@
     </ClCompile>
     <ClCompile Include="memoryData.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayDataCollection.cpp">
+      <Filter>DataClassFiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +83,9 @@
     </ClInclude>
     <ClInclude Include="MyThread.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayDataCollection.h">
+      <Filter>DataClassFiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

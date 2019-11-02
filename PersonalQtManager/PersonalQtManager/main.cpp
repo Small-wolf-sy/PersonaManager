@@ -1,6 +1,6 @@
 #include "PersonalQtManager.h"
 #include <QtWidgets/QApplication>
-#include <memoryData.h>
+#include "memoryData.h"
 #include <array>
 using namespace std;
 int main(int argc, char *argv[])

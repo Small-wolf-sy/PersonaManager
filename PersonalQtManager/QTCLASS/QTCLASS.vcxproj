@@ -12,7 +12,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
-    <Keyword>QtVS_v301</Keyword>
+    <Keyword>QtVS</Keyword>
+    
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -27,16 +28,11 @@
   <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
     <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\software\QT\5.8\msvc2015_64\lib;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-  </PropertyGroup>
-  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
-    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  <Target Name="QtMsBuildNotFound"
+    BeforeTargets="CustomBuild;ClCompile"
+    Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High"
+      Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
   </Target>
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
@@ -52,77 +48,37 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>QT5.8</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;datavisualization</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>QT5.8</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;datavisualization</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
   </ImportGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtMoc><PrependInclude>stdafx.h</PrependInclude></QtMoc>
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <ProjectReference>
-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtMoc><PrependInclude>stdafx.h</PrependInclude></QtMoc>
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DebugInformationFormat />
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MemorGui.cpp" />
-    <ClCompile Include="memoryData.cpp" />
-    <ClCompile Include="PersonalQtManager.cpp" />
+    <ClCompile Include="QTCLASS.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="PersonalQtManager.h" />
+    <ClInclude Include="QTCLASS.h" />
+    <ClInclude Include="qtclass_global.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="MemorGui.ui" />
-    <QtUic Include="PersonalQtManager.ui" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="PersonalQtManager.qrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="MemorGui.h">
-      <NoWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</NoWarnings>
-    </QtMoc>
-    <ClInclude Include="memoryData.h" />
-    <ClInclude Include="MyThread.h" />
-    <ClInclude Include="SortArrays.h" />
-    <ClInclude Include="ui_MemorGui.h" />
-    <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="jpg\role.jpg" />
-    <Image Include="PersonalQtManager.ico" />
+    <None Include="stdafx.h" />
+    <None Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -21,7 +21,9 @@ PersonalQtManager::PersonalQtManager(QWidget *parent)
 	QSignalMapper *mSignalMapper = new QSignalMapper(this);
 	connect(mSignalMapper, SIGNAL(mapped(QWidget*)), this, SLOT(ClickEventFilter(QWidget*)));
 	mSignalMapper->setMapping(ui.memorButton,ui.memorButton);
+	mSignalMapper->setMapping(ui.DataVisualButton, ui.DataVisualButton);
 	connect(ui.memorButton, SIGNAL(clicked()), mSignalMapper, SLOT(map()));
+	connect(ui.DataVisualButton, SIGNAL(clicked()), mSignalMapper, SLOT(map()));
 }
 //子窗口关闭事件
 void PersonalQtManager::ChildQwidgeEvent()
@@ -63,6 +65,13 @@ void PersonalQtManager::MemoryButtonEvent()
 	}
 }
 
+//可视化功能启动
+void PersonalQtManager::DataVisualEvent()
+{
+	//VisualDialog *vd = new VisualDialog();
+	//vd->show();
+}
+
 //窗口关闭
 void PersonalQtManager::closeEvent(QCloseEvent * event)
 {
@@ -82,6 +91,10 @@ void PersonalQtManager::ClickEventFilter(QWidget* w)
 		if (button->text()=="memorandum")
 		{
 			MemoryButtonEvent();
+		}
+		else if (button->text() == "DataVisualization")
+		{
+			DataVisualEvent();
 		}
 		//QMessageBox::warning(NULL, tr("title"), tr("cancel"));
 	}

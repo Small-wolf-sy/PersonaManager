@@ -4,6 +4,7 @@
 #include "ui_PersonalQtManager.h"
 #include "MemorGui.h"
 #include "MyThread.h"
+//#include "VisualDialog.h"
 
 class PersonalQtManager : public QMainWindow
 {
@@ -14,6 +15,7 @@ public:
 	void closeEvent(QCloseEvent *event);//重写关闭事件
 	public slots:
 	void MemoryButtonEvent();
+	void DataVisualEvent();
 	void ClickEventFilter(QWidget*);//未来针对按钮事件，统一用这个来筛选具体的按钮事件，而不是每一个都需要写一遍
 private:
 	void ThreadStart();

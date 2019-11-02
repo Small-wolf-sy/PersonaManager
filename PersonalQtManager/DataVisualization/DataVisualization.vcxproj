@@ -12,13 +12,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayDataCollection.h" />
+    <ClInclude Include="ui_VisualWindow.h" />
+    <ClInclude Include="datavisualization_global.h" />
+    <QtMoc Include="VisualDialog.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArrayDataCollection.cpp" />
+    <ClCompile Include="VisualDialog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="VisualWindow.ui">
+      <FileType>Document</FileType>
+    </QtUic>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{568B928D-ABE3-4A57-88B9-21D4950029BF}</ProjectGuid>
     <Keyword>QtVS_v301</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -58,7 +68,7 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>QT5.8</QtInstall>
-    <QtModules>core;datavisualization</QtModules>
+    <QtModules>core;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>QT5.8</QtInstall>

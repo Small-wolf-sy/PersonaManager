@@ -10,17 +10,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayDataCollection.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayDataCollection.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <ProjectGuid>{568B928D-ABE3-4A57-88B9-21D4950029BF}</ProjectGuid>
     <Keyword>QtVS_v301</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -29,8 +35,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\software\QT\5.8\msvc2015_64\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -52,11 +58,11 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>QT5.8</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;datavisualization</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>QT5.8</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;datavisualization</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -68,11 +74,12 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PreprocessorDefinitions>DATAVISUALIZATION_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -82,52 +89,23 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PreprocessorDefinitions>DATAVISUALIZATION_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MemorGui.cpp" />
-    <ClCompile Include="memoryData.cpp" />
-    <ClCompile Include="PersonalQtManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="PersonalQtManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="MemorGui.ui" />
-    <QtUic Include="PersonalQtManager.ui" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="PersonalQtManager.qrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="MemorGui.h">
-      <NoWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</NoWarnings>
-    </QtMoc>
-    <ClInclude Include="memoryData.h" />
-    <ClInclude Include="MyThread.h" />
-    <ClInclude Include="SortArrays.h" />
-    <ClInclude Include="ui_MemorGui.h" />
-    <ClInclude Include="x64\Debug\uic\ui_PersonalQtManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="jpg\role.jpg" />
-    <Image Include="PersonalQtManager.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataVisualization\DataVisualization.vcxproj">
-      <Project>{568b928d-abe3-4a57-88b9-21d4950029bf}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />
   </ImportGroup>
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

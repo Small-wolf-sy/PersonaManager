@@ -43,9 +43,6 @@
     <ClCompile Include="memoryData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ArrayDataCollection.cpp">
-      <Filter>DataClassFiles</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PersonalQtManager.h">
@@ -83,9 +80,6 @@
     </ClInclude>
     <ClInclude Include="MyThread.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayDataCollection.h">
-      <Filter>DataClassFiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

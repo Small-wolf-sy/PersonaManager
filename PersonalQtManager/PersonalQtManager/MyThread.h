@@ -94,7 +94,6 @@ private:
 	{
 		__int64 a = time1.dwHighDateTime << 32 | time1.dwLowDateTime;
 		__int64 b = time2.dwHighDateTime << 32 | time2.dwLowDateTime;
-
 		return (b - a);
 	}
 };

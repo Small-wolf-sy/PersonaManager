@@ -1,5 +1,6 @@
 #include "PersonalQtManager.h"
 #include <qsignalmapper.h>
+#include "DataVisualizationCore.h"
 using namespace std;
 PersonalQtManager::PersonalQtManager(QWidget *parent)
 	: QMainWindow(parent)
@@ -68,8 +69,13 @@ void PersonalQtManager::MemoryButtonEvent()
 //可视化功能启动
 void PersonalQtManager::DataVisualEvent()
 {
-	//VisualDialog *vd = new VisualDialog();
-	//vd->show();
+	//两种构造方法
+	DataVisualizationCore dvc;
+	vector<double> test_vec = { 1,2,3,4 };
+	ArrayData<double> *ad = new ArrayData<double>(test_vec);
+	DataVisualizationCore Advc_ad = DataVisualizationCore(1,*ad);
+	int num1 = dvc._num;
+	int num2 = Advc_ad._num;
 }
 
 //窗口关闭

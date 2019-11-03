@@ -29,8 +29,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\software\QT\5.8\msvc2015_64\lib;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;E:\CodePractice\PersonaManager\PersonalQtManager\DataVisualizationCore;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\software\QT\5.8\msvc2015_64\lib;E:\CodePractice\PersonaManager\PersonalQtManager\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -68,14 +68,14 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;E:\CodePractice\PersonaManager\PersonalQtManager\DataVisualizationCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Small-wolf-sy\PersonaManager\PersonalQtManager\PersonalQtManager\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\CodePractice\PersonaManager\PersonalQtManager\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DataVisualizationCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
@@ -123,6 +123,11 @@
   <ItemGroup>
     <Image Include="jpg\role.jpg" />
     <Image Include="PersonalQtManager.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataVisualizationCore\DataVisualizationCore.vcxproj">
+      <Project>{6d996a87-19cf-4057-91b4-ad26063cefc4}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

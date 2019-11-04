@@ -77,8 +77,7 @@ void PersonalQtManager::DataVisualEvent()
 	int num1 = dvc._num;
 	int num2 = Advc_ad._num;
 	//在这里就不能显示了
-	//dvc.mainWindow= new DataVisualWindow();
-	//dvc.mainWindow->show();
+	dvc.StartWindow();
 }
 
 //窗口关闭

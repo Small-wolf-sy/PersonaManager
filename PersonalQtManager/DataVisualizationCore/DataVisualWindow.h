@@ -1,7 +1,7 @@
 #pragma once
 #include <QWidget>
 #include "ui_DataVisualWindow.h"
-class DataVisualWindow :public QMainWindow
+class  DataVisualWindow :public QMainWindow
 {
 	Q_OBJECT
 

@@ -18,7 +18,8 @@ public:
 		_num = num;
 		//在这里可以显示
 		mainWindow = new DataVisualWindow();
-		mainWindow->show();
+		//mainWindow->show();
 	};
 	int _num;
+	void StartWindow();
 };

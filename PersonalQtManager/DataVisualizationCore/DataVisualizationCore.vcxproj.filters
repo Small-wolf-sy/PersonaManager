@@ -49,7 +49,7 @@
     <ClInclude Include="ArrayDataCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="x64\Debug\uic\ui_DataVisualWindow.h">
+    <ClInclude Include="ui_DataVisualWindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

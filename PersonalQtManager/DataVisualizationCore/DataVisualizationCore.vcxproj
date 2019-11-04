@@ -107,6 +107,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataVisualizationCore.cpp" />
+    <ClCompile Include="DataVisualWindow.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -116,10 +117,17 @@
     <ClInclude Include="ArrayDataCollection.h" />
     <ClInclude Include="DataVisualizationCore.h" />
     <ClInclude Include="datavisualizationcore_global.h" />
+    <QtMoc Include="DataVisualWindow.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="x64\Debug\uic\ui_DataVisualWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="DataVisualWindow.ui">
+      <FileType>Document</FileType>
+    </QtUic>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

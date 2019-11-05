@@ -68,7 +68,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\DataVisualizationCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\software\QT\5.8\msvc2015_64\include;E:\CodePractice\PersonaManager\PersonalQtManager\DataVisualizationCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

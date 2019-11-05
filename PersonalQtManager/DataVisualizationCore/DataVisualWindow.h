@@ -10,4 +10,7 @@ public:
 	~DataVisualWindow();
 private:
 	Ui::MainWindow ui;
+	private slots:
+	void saveButtonClickEvent();
+	void clearButtonClickEvent();
 };

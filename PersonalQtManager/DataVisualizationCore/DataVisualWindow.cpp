@@ -24,17 +24,39 @@ DataVisualWindow::DataVisualWindow(QMainWindow *parent)
 	//ui.mainPicLabel->show();
 	//换一种形式显示
 	QGraphicsScene *scene = new QGraphicsScene;
-	scene->addPixmap(pix.fromImage(image));
 	//scene->setSceneRect(QRect(0, 0, ui.mainFrame->width(), ui.mainFrame->height()));
-	ui.mainGraphicView->setScene(scene);
+	scene->addPixmap(pix.fromImage(image));
+	//ui.mainGraphicView->setScene(scene);
 	connect(ui.checkbuttonbox, SIGNAL(accepted()), this, SLOT(saveButtonClickEvent()));
 	connect(ui.checkbuttonbox, SIGNAL(rejected()), this, SLOT(clearButtonClickEvent()));
+	connect(ui.exampleButton, SIGNAL(clicked()), this, SLOT(exampleClickEvent()));
 }
 DataVisualWindow::~DataVisualWindow()
 {
 }
 
 void DataVisualWindow::saveButtonClickEvent()
+{
+	
+}
+
+void DataVisualWindow::clearButtonClickEvent()
+{
+	//清空mainGraphicView布局内的所有元素
+	QLayoutItem *child;
+	while ((child = ui.mainGraphicView->layout()->takeAt(0)) != 0)
+	{
+		//setParent为NULL，防止删除之后界面不消失,不然删除了绘制的界面还在
+		if (child->widget())
+		{
+			child->widget()->setParent(NULL);
+		}
+		delete child;
+	}
+}
+
+//显示测试效果
+void DataVisualWindow::exampleClickEvent()
 {
 	////QMessageBox::warning(NULL, tr("title"), tr("OK"));
 	QBarSet *set0 = new QBarSet("Jane"); set0->setLabelColor(QColor(0, 0, 0));
@@ -83,9 +105,6 @@ void DataVisualWindow::saveButtonClickEvent()
 	QChartView *chartView = new QChartView(chart);//声明QChartView 并创建实例，加载chart
 	QGridLayout *baseLayout = new QGridLayout(); //便于显示，创建网格布局
 	baseLayout->addWidget(chartView, 1, 0);
+	ui.mainGraphicView->setAutoFillBackground(true);
 	ui.mainGraphicView->setLayout(baseLayout);
-}
-
-void DataVisualWindow::clearButtonClickEvent()
-{
 }

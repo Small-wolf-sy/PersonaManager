@@ -13,4 +13,5 @@ private:
 	private slots:
 	void saveButtonClickEvent();
 	void clearButtonClickEvent();
+	void exampleClickEvent();
 };

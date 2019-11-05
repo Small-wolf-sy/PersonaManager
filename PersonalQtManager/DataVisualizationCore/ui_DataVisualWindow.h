@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'DataVisualWindowp16336.ui'
+** Form generated from reading UI file 'DataVisualWindowHp8824.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef DATAVISUALWINDOWP16336_H
-#define DATAVISUALWINDOWP16336_H
+#ifndef DATAVISUALWINDOWHP8824_H
+#define DATAVISUALWINDOWHP8824_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -33,6 +34,7 @@ public:
     QLabel *mainPicLabel;
     QGraphicsView *mainGraphicView;
     QDialogButtonBox *checkbuttonbox;
+    QPushButton *exampleButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -63,7 +65,15 @@ public:
         checkbuttonbox = new QDialogButtonBox(centralwidget);
         checkbuttonbox->setObjectName(QStringLiteral("checkbuttonbox"));
         checkbuttonbox->setGeometry(QRect(600, 520, 156, 23));
+        QFont font;
+        font.setFamily(QStringLiteral("Calibri"));
+        font.setPointSize(10);
+        checkbuttonbox->setFont(font);
         checkbuttonbox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        exampleButton = new QPushButton(centralwidget);
+        exampleButton->setObjectName(QStringLiteral("exampleButton"));
+        exampleButton->setGeometry(QRect(490, 520, 75, 23));
+        exampleButton->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -82,6 +92,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         mainPicLabel->setText(QString());
+        exampleButton->setText(QApplication::translate("MainWindow", "Example", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -92,4 +103,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // DATAVISUALWINDOWP16336_H
+#endif // DATAVISUALWINDOWHP8824_H

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'DataVisualWindowp14476.ui'
+** Form generated from reading UI file 'DataVisualWindowp16336.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef DATAVISUALWINDOWP14476_H
-#define DATAVISUALWINDOWP14476_H
+#ifndef DATAVISUALWINDOWP16336_H
+#define DATAVISUALWINDOWP16336_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -32,7 +32,6 @@ public:
     QFrame *mainFrame;
     QLabel *mainPicLabel;
     QGraphicsView *mainGraphicView;
-    QWidget *testWidget;
     QDialogButtonBox *checkbuttonbox;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -41,7 +40,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(800, 590);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         mainFrame = new QFrame(centralwidget);
@@ -54,16 +53,13 @@ public:
         mainPicLabel->setGeometry(QRect(350, 220, 54, 12));
         mainGraphicView = new QGraphicsView(mainFrame);
         mainGraphicView->setObjectName(QStringLiteral("mainGraphicView"));
-        mainGraphicView->setGeometry(QRect(0, 0, 441, 281));
+        mainGraphicView->setGeometry(QRect(0, 4, 731, 510));
         QBrush brush(QColor(0, 0, 0, 0));
         brush.setStyle(Qt::NoBrush);
         mainGraphicView->setBackgroundBrush(brush);
         QBrush brush1(QColor(0, 0, 0, 0));
         brush1.setStyle(Qt::NoBrush);
         mainGraphicView->setForegroundBrush(brush1);
-        testWidget = new QWidget(mainFrame);
-        testWidget->setObjectName(QStringLiteral("testWidget"));
-        testWidget->setGeometry(QRect(440, 280, 281, 231));
         checkbuttonbox = new QDialogButtonBox(centralwidget);
         checkbuttonbox->setObjectName(QStringLiteral("checkbuttonbox"));
         checkbuttonbox->setGeometry(QRect(600, 520, 156, 23));
@@ -96,4 +92,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // DATAVISUALWINDOWP14476_H
+#endif // DATAVISUALWINDOWP16336_H

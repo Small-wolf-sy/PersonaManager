@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,9 +46,9 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>0</y>
-       <width>441</width>
-       <height>281</height>
+       <y>4</y>
+       <width>731</width>
+       <height>510</height>
       </rect>
      </property>
      <property name="backgroundBrush">
@@ -68,16 +68,6 @@
         <blue>0</blue>
        </color>
       </brush>
-     </property>
-    </widget>
-    <widget class="QWidget" name="testWidget" native="true">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>280</y>
-       <width>281</width>
-       <height>231</height>
-      </rect>
      </property>
     </widget>
    </widget>

@@ -17,11 +17,16 @@ DataVisualWindow::DataVisualWindow(QMainWindow *parent)
 	QImage image;
 	image.load("jpg/role.jpg");
 	QPixmap pix;
-	//label位于frame内时，label的定位是内部坐标系
-	ui.mainPicLabel->setGeometry(QRect(0, 0, ui.mainFrame->width(), ui.mainFrame->height()));
-	ui.mainPicLabel->setPixmap(pix.fromImage(image));
-	ui.mainPicLabel->setScaledContents(true);
-	ui.mainPicLabel->show();
+	////label位于frame内时，label的定位是内部坐标系
+	//ui.mainPicLabel->setGeometry(QRect(0, 0, ui.mainFrame->width(), ui.mainFrame->height()));
+	//ui.mainPicLabel->setPixmap(pix.fromImage(image));
+	//ui.mainPicLabel->setScaledContents(true);
+	//ui.mainPicLabel->show();
+	//换一种形式显示
+	QGraphicsScene *scene = new QGraphicsScene;
+	scene->addPixmap(pix.fromImage(image));
+	//scene->setSceneRect(QRect(0, 0, ui.mainFrame->width(), ui.mainFrame->height()));
+	ui.mainGraphicView->setScene(scene);
 	connect(ui.checkbuttonbox, SIGNAL(accepted()), this, SLOT(saveButtonClickEvent()));
 	connect(ui.checkbuttonbox, SIGNAL(rejected()), this, SLOT(clearButtonClickEvent()));
 }

@@ -86,6 +86,7 @@ void PersonalQtManager::closeEvent(QCloseEvent * event)
 	//停止线程，避免窗口关闭时线程仍然在执行
 	mt->quit();
 	//mc->quit();
+	Sleep(500);
 	event->accept();
 }
 

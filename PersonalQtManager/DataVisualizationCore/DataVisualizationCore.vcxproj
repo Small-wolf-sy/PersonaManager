@@ -117,9 +117,9 @@
     <ClInclude Include="ArrayDataCollection.h" />
     <ClInclude Include="DataVisualizationCore.h" />
     <ClInclude Include="datavisualizationcore_global.h" />
+    <ClInclude Include="ui_DataVisualWindow.h" />
     <QtMoc Include="DataVisualWindow.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="x64\Debug\uic\ui_DataVisualWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source.def" />

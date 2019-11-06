@@ -3,7 +3,13 @@
 #include <QWidget>
 #include <qmessagebox.h>
 #include "ui_MemorGui.h"
-
+#include "XMLOperator.h"
+enum abilityType
+{
+	add_Activated,
+	search_Activated,
+	none_Activated
+};
 class MemorGui : public QWidget
 {
 	Q_OBJECT
@@ -11,9 +17,12 @@ class MemorGui : public QWidget
 public:
 	MemorGui(QWidget *parent = Q_NULLPTR);
 	~MemorGui();
+	//设置状态
+	abilityType Memory_state = abilityType::none_Activated;
 	void ClearContext();
 	void SetMemEabled();
 	void SetMemDiseabled();
+	void SetSearchAddEnabled();
 	void closeEvent(QCloseEvent *event);//重写关闭事件
 	//清空填写的所有内容
 	signals:
@@ -25,4 +34,5 @@ public:
 	   void inputCancelClickEvent();  
 private:
 	Ui::MemorGui ui;
+	XMLOperator data_operator;
 };

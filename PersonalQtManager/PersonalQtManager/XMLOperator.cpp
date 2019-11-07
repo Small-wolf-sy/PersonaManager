@@ -24,8 +24,8 @@ bool XMLOperator::ReadLocalStorage()
 //初始化程序，确定XML文件
 void XMLOperator::XMLInitialLocalStorage(string path)
 {
-	// 新建一个空文档（表示完整的xml）
-	tinyxml2::XMLDocument xmlDoc;
+	// 新建一个空文档（表示完整的xml）,为了避免与msxml冲突，重命名了tinyXMLDocument
+	tinyxml2::TinyXMLDocument xmlDoc;
 
 	// 新节点
 	XMLNode * pRoot = xmlDoc.NewElement("Root");
@@ -71,5 +71,18 @@ void XMLOperator::XMLInitialLocalStorage(string path)
 	pElement->InsertEndChild(pNewElement);
 
 	// 保存文件
-	XMLError eResult = xmlDoc.SaveFile("test.xml");
+	string xml_doc = "test.xml";
+	xml_doc = path + xml_doc;
+	XMLError eResult = xmlDoc.SaveFile(xml_doc.data());
+
+	/*最终效果
+	<?xml version="1.0"?>
+	-<Root>
+	<IntValue key="hello" year="2017">10</IntValue>
+	-<FloatValue>
+	<value1>1</value1>
+	<value2>2</value2>
+	</FloatValue>
+	</Root>
+	*/
 }

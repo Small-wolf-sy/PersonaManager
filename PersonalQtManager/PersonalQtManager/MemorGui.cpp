@@ -54,6 +54,7 @@ void MemorGui::inputFinishClickEvent()
 	default:
 		break;
 	}
+	data_operator.XMLInitialLocalStorage();
 	SetMemDiseabled();
 	SetSearchAddEnabled();
 }

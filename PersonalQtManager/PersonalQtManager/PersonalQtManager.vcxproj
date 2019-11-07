@@ -99,6 +99,7 @@
     <ClCompile Include="MemorGui.cpp" />
     <ClCompile Include="memoryData.cpp" />
     <ClCompile Include="PersonalQtManager.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="XMLOperator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +113,7 @@
     <QtRcc Include="PersonalQtManager.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="XMLOperator.h" />
     <QtMoc Include="MemorGui.h">
       <NoWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</NoWarnings>

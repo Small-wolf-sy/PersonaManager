@@ -26,6 +26,9 @@
     <Filter Include="Generated Files">
       <UniqueIdentifier>{4ca0b757-14f1-4f41-ae31-4d491c2418c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tinyxml Files">
+      <UniqueIdentifier>{4b5c1889-d7c1-4204-9d1d-4678b9a8bb14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +45,9 @@
     </ClCompile>
     <ClCompile Include="XMLOperator.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>tinyxml Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="XMLOperator.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>tinyxml Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

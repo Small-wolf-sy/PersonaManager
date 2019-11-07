@@ -15,6 +15,10 @@ MemorGui::MemorGui(QWidget *parent)
 	//绑定Qdialog按钮事件，accept和reject分别对应OK和Cancel
 	connect(ui.operateCheckBox, SIGNAL(accepted()), this, SLOT(inputFinishClickEvent()));
 	connect(ui.operateCheckBox, SIGNAL(rejected()), this, SLOT(inputCancelClickEvent()));
+	if (!data_operator.StorageCheck())
+	{
+		QMessageBox::warning(NULL, tr("information"), tr("Local Storage can't find,new created"));
+	}
 }
 
 MemorGui::~MemorGui()
@@ -43,18 +47,28 @@ void MemorGui::addButtonClickEvent()
 void MemorGui::inputFinishClickEvent()
 {
 	//检查当前状态
-	switch (Memory_state)
+	try
 	{
-	case abilityType::add_Activated:
-		QMessageBox::warning(NULL, tr("title"), tr("you used add ability"));
-		break;
-	case abilityType::search_Activated:
-		QMessageBox::warning(NULL, tr("title"), tr("you used search ability"));
-		break;
-	default:
-		break;
+		switch (Memory_state)
+		{
+		case abilityType::add_Activated:
+			QMessageBox::warning(NULL, tr("title"), tr("you used add ability"));
+			AddActivated();
+			break;
+		case abilityType::search_Activated:
+			QMessageBox::warning(NULL, tr("title"), tr("you used search ability"));
+			SearchActivated();
+			break;
+		default:
+			break;
+		}
 	}
-	data_operator.XMLInitialLocalStorage();
+	catch (exception e)
+	{
+		QMessageBox::warning(NULL, tr("systemWrong"), tr("ability-activated-failed"));
+		SetMemDiseabled();
+		SetSearchAddEnabled();
+	}
 	SetMemDiseabled();
 	SetSearchAddEnabled();
 }
@@ -102,4 +116,13 @@ void MemorGui::closeEvent(QCloseEvent * event)
 	//接受关闭信号
 	event->accept();
 }
-
+//读取当前数据并存储
+void MemorGui::AddActivated()
+{
+	return;
+}
+//读取当前关键词并搜索
+void MemorGui::SearchActivated()
+{
+	return;
+}

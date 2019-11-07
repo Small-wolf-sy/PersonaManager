@@ -35,4 +35,6 @@ public:
 private:
 	Ui::MemorGui ui;
 	XMLOperator data_operator;
+	void AddActivated();//执行添加操作并反馈
+	void SearchActivated();//执行搜索操作并反馈
 };

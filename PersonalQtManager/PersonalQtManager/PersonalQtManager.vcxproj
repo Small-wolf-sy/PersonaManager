@@ -29,8 +29,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\DataVisualizationCore;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\software\QT\5.8\msvc2015_64\lib;D:\Small-wolf-sy\PersonaManager\PersonalQtManager\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\software\QT\5.8\msvc2015_64\include;E:\CodePractice\PersonaManager\PersonalQtManager\DataVisualizationCore;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\software\QT\5.8\msvc2015_64\lib;E:\CodePractice\PersonaManager\PersonalQtManager\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>

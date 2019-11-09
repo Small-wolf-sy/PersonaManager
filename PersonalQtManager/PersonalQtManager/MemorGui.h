@@ -2,7 +2,9 @@
 //明明程序是可以编译通过的，但就是报错
 #include <QWidget>
 #include <qmessagebox.h>
+#include <QTime>
 #include "ui_MemorGui.h"
+#include "memoryData.h"
 #include "XMLOperator.h"
 enum abilityType
 {

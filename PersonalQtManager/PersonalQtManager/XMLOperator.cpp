@@ -17,8 +17,47 @@ XMLOperator::~XMLOperator()
 
 //TODO，写一个和XML读写相关的类进行查找
 //写本地数据
-bool XMLOperator::WriteLocalStorage()
+bool XMLOperator::WriteLocalStorage(memoryData md)
 {
+	string path = "E:\\local_storage.xml";
+	// 新建一个空文档（表示完整的xml）,为了避免与msxml冲突，重命名了tinyXMLDocument
+	tinyxml2::TinyXMLDocument xmlDoc=new TinyXMLDocument();
+	xmlDoc.LoadFile(path.c_str());
+	// 获取根节点，从而对数据进行更新存储
+	XMLNode * pRoot = xmlDoc.RootElement();
+
+	// 新建一个元素,最好就以关键词作为节点名，设置关键字
+	XMLElement *pElement = xmlDoc.NewElement(md.GetKey().c_str());
+	//设置记录时间
+	XMLElement *recordElement= xmlDoc.NewElement("RecordTime");
+	recordElement->SetText(md.GetRecord().c_str());
+	pElement->InsertEndChild(recordElement);
+	//截止时间
+	XMLElement *pnewElement = xmlDoc.NewElement("DeadLine");
+	//年
+	XMLElement *time_element = xmlDoc.NewElement("year");
+	time_element->SetText(md.GetDeadLine()[0]);
+	pnewElement->InsertEndChild(time_element);
+	//月
+	time_element = xmlDoc.NewElement("month");
+	time_element->SetText(md.GetDeadLine()[1]);
+	pnewElement->InsertEndChild(time_element);
+	//日
+	time_element = xmlDoc.NewElement("day");
+	time_element->SetText(md.GetDeadLine()[2]);
+	pnewElement->InsertEndChild(time_element);
+	// 将该节点添加到pRoot节点下("Root")
+	pElement->InsertEndChild(pnewElement);
+
+	//插入详细记录
+	XMLElement *descriElement = xmlDoc.NewElement("Description");
+	descriElement->SetText(md.GetDetails().c_str());
+	pElement->InsertEndChild(descriElement);
+	//放入总节点
+	pRoot->InsertEndChild(pElement);
+	// 保存文件
+	string xml_doc = path;
+	XMLError eResult = xmlDoc.SaveFile(xml_doc.data());
 	return false;
 }
 //读本地数据
@@ -124,8 +163,7 @@ void XMLOperator::XMLInitialLocalStorage(string path)
 	pRoot->InsertEndChild(pElement);
 
 	// 保存文件
-	string xml_doc = "local_storage.xml";
-	xml_doc = path + xml_doc;
+	string xml_doc = path;
 	XMLError eResult = xmlDoc.SaveFile(xml_doc.data());
 
 	//// 指向新的节点

@@ -8,6 +8,9 @@ MemorGui::MemorGui(QWidget *parent)
 	ui.memKey->setDisabled(true);
 	ui.operateCheckBox->setDisabled(true);
 	ui.timeRecord->setDisabled(true);
+	ui.year_input->setDisabled(true);
+	ui.day_input->setDisabled(true);
+	ui.month_input->setDisabled(true);
 	//绑定添加按钮事件
 	connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addButtonClickEvent()));
 	//绑定搜索按钮事件
@@ -15,6 +18,7 @@ MemorGui::MemorGui(QWidget *parent)
 	//绑定Qdialog按钮事件，accept和reject分别对应OK和Cancel
 	connect(ui.operateCheckBox, SIGNAL(accepted()), this, SLOT(inputFinishClickEvent()));
 	connect(ui.operateCheckBox, SIGNAL(rejected()), this, SLOT(inputCancelClickEvent()));
+	//检查是否存在数据
 	if (!data_operator.StorageCheck())
 	{
 		QMessageBox::warning(NULL, tr("information"), tr("Local Storage can't find,new created"));
@@ -92,7 +96,11 @@ void MemorGui::SetMemEabled()
 	ui.detailDesrciption->setEnabled(true);
 	ui.memKey->setEnabled(true);
 	ui.operateCheckBox->setEnabled(true);
-	ui.timeRecord->setEnabled(true);
+	ui.year_input->setEnabled(true);
+	ui.day_input->setEnabled(true);
+	ui.month_input->setEnabled(true);
+	//timeRecord需要单独处理
+	ui.timeRecord->setText(QTime::currentTime().toString("hh:mm:ss"));
 }
 //设置不可输入
 void MemorGui::SetMemDiseabled()
@@ -100,7 +108,9 @@ void MemorGui::SetMemDiseabled()
 	ui.detailDesrciption->setDisabled(true);
 	ui.memKey->setDisabled(true);
 	ui.operateCheckBox->setDisabled(true);
-	ui.timeRecord->setDisabled(true);
+	ui.year_input->setDisabled(true);
+	ui.day_input->setDisabled(true);
+	ui.month_input->setDisabled(true);
 }
 //激活搜索和添加功能
 void MemorGui::SetSearchAddEnabled()
@@ -119,6 +129,20 @@ void MemorGui::closeEvent(QCloseEvent * event)
 //读取当前数据并存储
 void MemorGui::AddActivated()
 {
+	string key_words = ui.memKey->toPlainText().toStdString();
+	if (key_words == "")
+	{
+		QMessageBox::warning(NULL, tr("warning"), tr("keywords must be told"));
+		return;
+	}
+	string record_time = ui.timeRecord->toPlainText().toStdString();
+	string descr = ui.detailDesrciption->toPlainText().toStdString();
+	int year = atoi(ui.year_input->toPlainText().toStdString().c_str());
+	int month = atoi(ui.month_input->toPlainText().toStdString().c_str());
+	int day = atoi(ui.day_input->toPlainText().toStdString().c_str());
+	vector<int> deadline = { year,month,day };
+	memoryData addmem = memoryData(key_words,record_time,deadline,descr);
+	data_operator.WriteLocalStorage(addmem);
 	return;
 }
 //读取当前关键词并搜索

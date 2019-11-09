@@ -1,37 +1,43 @@
 #include "memoryData.h"
 
 //构造函数
-memoryData::memoryData()
+memoryData::memoryData(string keywords, string recordtime)
 {
+	key_words = keywords;
+	_recordtime = recordtime;
 }
-memoryData::memoryData(vector<int> date)
+memoryData::memoryData(string keywords, string recordtime,vector<int> deadline)
 {
-	_date = date;
+	key_words = keywords;
+	_recordtime = recordtime;
+	_deadline = deadline;
 }
-memoryData::memoryData(vector<int>date,string key)
+
+memoryData::memoryData(string keywords, string recordtime, vector<int> deadline,string description)
 {
-	_date = date;
-	key_words = key;
-}
-memoryData::memoryData(vector<int>date,string key,string description)
-{
-	_date = date;
-	key_words = key;
+	key_words = keywords;
+	_recordtime = recordtime;
+	_deadline = deadline;
 	detailsDescript = description;
 }
 memoryData::~memoryData()
 {
 }
-//设置日期
-void memoryData::SetDate(vector<int> input_vec)
+//设置截止时间
+void memoryData::SetDeadLine(vector<int> input_vec)
 {
-	//此时自动创建了新的，即使在调用函数界面修改了input_vec，_date并不会改变
-	_date = input_vec;
+	//此时自动创建了新的，即使在调用函数界面修改了input_vec，_deadline并不会改变
+	_deadline = input_vec;
 }
-//获取时期
-vector<int> memoryData::GetDate()
+//设置截止时间
+vector<int> memoryData::GetDeadLine()
 {
-	return _date;
+	return _deadline;
+}
+//获取记录时间，无法修改
+string memoryData::GetRecord()
+{
+	return this->_recordtime;
 }
 //设置关键词
 void memoryData::SetKey(string input_words)

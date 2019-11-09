@@ -7,6 +7,7 @@ using namespace std;
 class memoryData
 {
 public:
+	memoryData();//空
 	memoryData(string, string);//已知关键词与记录时间
 	memoryData(string, string, vector<int>);//关键词、记录时间、截止时间
 	memoryData(string, string, vector<int>,string);//关键词、记录时间、截止时间、详细说明
@@ -22,6 +23,7 @@ public:
 	void SetDetails(string input_details = "null");
 	string GetDetails();
 	string GetRecord();
+	void SetRecord(string recordtime);
 private:
 	vector<int> _deadline;//截止日期
 	string _recordtime;//记录日期

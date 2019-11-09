@@ -1,5 +1,9 @@
 #include "memoryData.h"
 
+memoryData::memoryData()
+{
+}
+
 //构造函数
 memoryData::memoryData(string keywords, string recordtime)
 {
@@ -34,10 +38,14 @@ vector<int> memoryData::GetDeadLine()
 {
 	return _deadline;
 }
-//获取记录时间，无法修改
+//获取记录时间
 string memoryData::GetRecord()
 {
 	return this->_recordtime;
+}
+void memoryData::SetRecord(string recordtime)
+{
+	this->_recordtime = recordtime;
 }
 //设置关键词
 void memoryData::SetKey(string input_words)

@@ -61,7 +61,7 @@ void MemorGui::inputFinishClickEvent()
 			break;
 		case abilityType::search_Activated:
 			QMessageBox::warning(NULL, tr("title"), tr("you used search ability"));
-			SearchActivated();
+			SearchActivated(ui.memKey->toPlainText().toStdString());
 			break;
 		default:
 			break;
@@ -146,7 +146,14 @@ void MemorGui::AddActivated()
 	return;
 }
 //读取当前关键词并搜索
-void MemorGui::SearchActivated()
+void MemorGui::SearchActivated(string keyword)
 {
+	memoryData md=data_operator.SearchLocalStorage(keyword);
+	ui.timeRecord->setText(QString::fromStdString(md.GetRecord()));
+	ui.detailDesrciption->setPlainText(QString::fromStdString(md.GetDetails()));
+	vector<int> deadline = md.GetDeadLine();
+	ui.year_input->setText(QString::fromStdString(std::to_string(deadline[0])));
+	ui.month_input->setText(QString::fromStdString(std::to_string(deadline[1])));
+	ui.day_input->setText(QString::fromStdString(std::to_string(deadline[2])));
 	return;
 }

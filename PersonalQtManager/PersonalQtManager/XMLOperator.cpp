@@ -19,10 +19,10 @@ XMLOperator::~XMLOperator()
 //写本地数据
 bool XMLOperator::WriteLocalStorage(memoryData md)
 {
-	string path = "E:\\local_storage.xml";
+	//string path = "E:\\local_storage.xml";
 	// 新建一个空文档（表示完整的xml）,为了避免与msxml冲突，重命名了tinyXMLDocument
 	tinyxml2::TinyXMLDocument xmlDoc=new TinyXMLDocument();
-	xmlDoc.LoadFile(path.c_str());
+	xmlDoc.LoadFile(_localfile.c_str());
 	// 获取根节点，从而对数据进行更新存储
 	XMLNode * pRoot = xmlDoc.RootElement();
 
@@ -56,14 +56,54 @@ bool XMLOperator::WriteLocalStorage(memoryData md)
 	//放入总节点
 	pRoot->InsertEndChild(pElement);
 	// 保存文件
-	string xml_doc = path;
-	XMLError eResult = xmlDoc.SaveFile(xml_doc.data());
+	//string xml_doc = path;
+	XMLError eResult = xmlDoc.SaveFile(_localfile.data());
 	return false;
 }
 //读本地数据
-bool XMLOperator::SearchLocalStorage()
+memoryData XMLOperator::SearchLocalStorage(string keyword)
 {
-	return false;
+	memoryData md;
+	tinyxml2::TinyXMLDocument xmlDoc = new TinyXMLDocument();
+	xmlDoc.LoadFile(_localfile.c_str());
+	// 获取根节点，从而对数据进行更新存储
+	XMLNode * pRoot = xmlDoc.RootElement();
+	XMLElement *StuElement = pRoot->FirstChildElement();
+	while(true)
+	{	
+		if (StuElement == NULL)
+		{
+			break;
+		}
+	    if (StuElement->Name()==keyword)
+		{
+			ConvertXML(md,StuElement);
+			break;
+		}
+		else
+		{
+			StuElement = StuElement->NextSiblingElement();
+		}
+	}
+	return md;
+}
+
+void XMLOperator::ConvertXML(memoryData &md,XMLElement *targetElement)
+{
+	md.SetKey(targetElement->Name());
+	XMLElement *RecordTime = targetElement->FirstChildElement();
+	md.SetRecord(RecordTime->GetText());
+	XMLElement *deadline = RecordTime->NextSiblingElement();
+	XMLElement *year_xml = deadline->FirstChildElement();
+	XMLElement *month_xml = year_xml->NextSiblingElement();
+	XMLElement *day_xml = month_xml->NextSiblingElement();
+	int year = atoi(year_xml->GetText());
+	int month = atoi(month_xml->GetText());
+	int day = atoi(day_xml->GetText());
+	vector<int> xml_deadlinerecord = { year,month,day };
+	md.SetDeadLine(xml_deadlinerecord);
+	XMLElement *description = deadline->NextSiblingElement();
+	md.SetDetails(description->GetText());
 }
 
 bool XMLOperator::StorageCheck()

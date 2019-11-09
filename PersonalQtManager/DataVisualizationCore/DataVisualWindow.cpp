@@ -8,6 +8,8 @@
 #include <QtCharts\qvalueaxis.h>
 #include <QtCharts\qchartview.h>
 #include <qgridlayout.h>
+#include <qscreen.h>
+
 using namespace QtCharts;
 DataVisualWindow::DataVisualWindow(QMainWindow *parent)
 	: QMainWindow(parent)
@@ -37,12 +39,10 @@ DataVisualWindow::~DataVisualWindow()
 
 void DataVisualWindow::saveButtonClickEvent()
 {
-	QImage pixmap(ui.mainGraphicView->size(), QImage::Format_RGB32);
-	QPainter qpainter(&pixmap);
-	qpainter.setRenderHint(QPainter::Antialiasing);
-	ui.mainGraphicView->render(&qpainter);
-	qpainter.end();
-	pixmap.save("E:\\test.jpg");
+	QScreen *screen = QGuiApplication::primaryScreen();
+	QPixmap p =screen->grabWindow(ui.mainGraphicView->winId());
+	QImage image = p.toImage();
+	image.save("E:\\test.bmp");
 }
 
 void DataVisualWindow::clearButtonClickEvent()
@@ -62,12 +62,19 @@ void DataVisualWindow::clearButtonClickEvent()
 //测试效果图
 void DataVisualWindow::exampleClickEvent()
 {
+	QFont font;
+	font.setPointSize(40);
+	font.setPixelSize(20);
+
 	QBarSet *exper1 = new QBarSet("The length of tool path");
 	exper1->setLabelColor(QColor(0, 0, 0));
 	QBarSet *exper2 = new QBarSet("Processing time");
 	exper2->setLabelColor(QColor(96, 0, 0));
 	*exper1 << 12448.5 << 974.401 << 985.913;
 	*exper2 << 1220.4<< 974.401 << 215.4;
+
+	//改变单个坐标
+	exper1->setLabelFont(font);
 
 	QBarSeries *series = new QBarSeries();
 	series->setLabelsVisible(true);
@@ -76,6 +83,10 @@ void DataVisualWindow::exampleClickEvent()
 	series->append(exper2);
 
 	QChart *chart = new QChart();
+
+	//改变title字体
+	chart->setTitleFont(font);
+
 	chart->addSeries(series);   //加入柱状图
 	chart->setTitle("The compare of experiment result");
 	chart->setAnimationOptions(QChart::SeriesAnimations);
@@ -96,13 +107,7 @@ void DataVisualWindow::exampleClickEvent()
 	chart->legend()->setVisible(true);
 	chart->legend()->setAlignment(Qt::AlignBottom);
 
-	QFont font;
-	font.setPointSize(25);
-	font.setPixelSize(40);
-	chart->setFont(font);
 
-	//会卡死
-	//chart->zoomIn(ui.mainGraphicView->geometry());
 
 	//显示效果图的方法：目前找到的唯一能用的一种，Widget已经失败
 	QChartView *chartView = new QChartView(chart);//声明QChartView 并创建实例，加载chart
@@ -111,19 +116,18 @@ void DataVisualWindow::exampleClickEvent()
 	baseLayout->addWidget(chartView, 1, 0);
 	chartView->setAutoFillBackground(true);
 
-	QSize cs=chartView->size();
-	QSizeF cst = chart->size();
-	/*QPixmap pixmap(chartView->size(), QImage::Format_RGB32);*/
-	//存的图里，chart部分特别小
-	QPixmap pixmap(640,480);
-	QPainter qpainter(&pixmap);
-	qpainter.setRenderHint(QPainter::Antialiasing);
-	chartView->render(&qpainter);
-	qpainter.end();
-	pixmap.save("E:\\test.jpg");
-
 	ui.mainGraphicView->setAutoFillBackground(true);
 	ui.mainGraphicView->setLayout(baseLayout);
+
+	//这种存图效果不好
+	/*QPixmap pixmap(chartView->size(), QImage::Format_RGB32);*/
+	//存的图里，chart部分特别小
+	//QPixmap pixmap(640,480);
+	//QPainter qpainter(&pixmap);
+	//qpainter.setRenderHint(QPainter::Antialiasing);
+	//chartView->render(&qpainter);
+	//qpainter.end();
+	//pixmap.save("E:\\test.jpg");
 }
 
 /*

@@ -11,6 +11,10 @@ MemorGui::MemorGui(QWidget *parent)
 	ui.year_input->setDisabled(true);
 	ui.day_input->setDisabled(true);
 	ui.month_input->setDisabled(true);
+	//设置tab快捷操作
+	setTabOrder(ui.year_input,ui.month_input);
+	setTabOrder(ui.month_input, ui.day_input);
+	setTabOrder(ui.day_input, ui.detailDesrciption);
 	//绑定添加按钮事件
 	connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addButtonClickEvent()));
 	//绑定搜索按钮事件

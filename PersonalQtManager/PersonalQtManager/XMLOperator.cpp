@@ -15,8 +15,7 @@ XMLOperator::~XMLOperator()
 {
 }
 
-//TODO，写一个和XML读写相关的类进行查找
-//写本地数据
+//添加新的待检测备忘录
 bool XMLOperator::WriteLocalStorage(memoryData md)
 {
 	//string path = "E:\\local_storage.xml";
@@ -60,7 +59,7 @@ bool XMLOperator::WriteLocalStorage(memoryData md)
 	XMLError eResult = xmlDoc.SaveFile(_localfile.data());
 	return false;
 }
-//读本地数据
+//搜索本地结果
 memoryData XMLOperator::SearchLocalStorage(string keyword)
 {
 	memoryData md;
@@ -87,7 +86,7 @@ memoryData XMLOperator::SearchLocalStorage(string keyword)
 	}
 	return md;
 }
-
+//实现搜索所得的节点与memoryData之间的转换
 void XMLOperator::ConvertXML(memoryData &md,XMLElement *targetElement)
 {
 	md.SetKey(targetElement->Name());
@@ -105,7 +104,7 @@ void XMLOperator::ConvertXML(memoryData &md,XMLElement *targetElement)
 	XMLElement *description = deadline->NextSiblingElement();
 	md.SetDetails(description->GetText());
 }
-
+//检测本地是否存在待检测数据
 bool XMLOperator::StorageCheck()
 {
 	fstream _file;
@@ -120,7 +119,6 @@ bool XMLOperator::StorageCheck()
 		return true;
 	}
 }
-
 //初始化程序，确定XML文件
 void XMLOperator::XMLInitialLocalStorage(string path)
 {
